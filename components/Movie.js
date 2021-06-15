@@ -22,7 +22,7 @@ function Movie({ movie }) {
           height="750"
         />
         <Button variant="outline" size="sm" color="gray.200" my={2}>
-          <a href={`${imagesbaseurl}${movie.poster_path}`} download="">
+          <a href={`${imagesbaseurl}${movie.poster_path}`} download>
             Download Poster
           </a>
         </Button>
