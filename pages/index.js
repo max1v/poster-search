@@ -31,15 +31,16 @@ export default function Home() {
   const handleSearchBar = (event) => setBar(event.target.value);
 
   const searchMovie = async () => {
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=afc40d07fa1e3ddaf8283fcad53b1790&language=en-US&query=${searchBar}&page=1&include_adult=false`;
+    if (searchBar) {
+      const url = `https://api.themoviedb.org/3/search/movie?api_key=afc40d07fa1e3ddaf8283fcad53b1790&language=en-US&query=${searchBar}&page=1&include_adult=false`;
 
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      setMovies(data.results);
-      console.log(movies);
-    } catch (error) {
-      console.log(error);
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        setMovies(data.results);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
@@ -67,9 +68,9 @@ export default function Home() {
         borderRadius={5}
       >
         <Heading my={2}>Movie Poster Search</Heading>
-        <FormControl borderRadius={5} bg="gray.100" p={6} mb={2}>
+        <FormControl borderRadius={5} mb={2}>
           <FormLabel
-            color="cyan.600"
+            color="gray.900"
             fontWeight="bold"
             fontSize="md"
             mb={2}
@@ -79,7 +80,7 @@ export default function Home() {
           </FormLabel>
           <Input
             placeholder="type here"
-            variant="outline"
+            variant="filled"
             type="text"
             width="auto"
             value={searchBar}
@@ -95,6 +96,7 @@ export default function Home() {
             colorScheme="cyan"
             boxShadow="base"
             onClick={searchMovie}
+            color="white"
           >
             Submit
           </Button>
