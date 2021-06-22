@@ -80,18 +80,19 @@ export default function Home() {
           </FormLabel>
           <Input
             placeholder="type here"
-            variant="filled"
             type="text"
             width="auto"
             value={searchBar}
             onChange={handleSearchBar}
-            bg="gray.800"
-            color="gray.100"
+            bg="gray.900"
+            mr={2}
+            mb={2}
+            border="none"
+            color="white"
           />
           <Button
             type="submit"
             variant="solid"
-            mx={2}
             bg="cyan.500"
             colorScheme="cyan"
             boxShadow="base"
@@ -102,7 +103,7 @@ export default function Home() {
           </Button>
           <FormHelperText>Search by name of the movie</FormHelperText>
         </FormControl>
-        <SimpleGrid columns={[1, 2, 3, 4]} spacing={10}>
+        <SimpleGrid columns={[1, 1, 2, 3, 4]} spacing={10}>
           {movies.map((movie) => (
             <Movie key={movie.id} movie={movie} />
           ))}
